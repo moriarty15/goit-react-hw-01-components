@@ -1,0 +1,22 @@
+.list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.item + .item {
+  margin-left: 10px;
+}
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.status_online {
+  composes: status;
+  background-color: green;
+}
+.status_offline {
+  composes: status;
+  background-color: red;
+}
