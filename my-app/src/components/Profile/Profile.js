@@ -4,7 +4,7 @@ import p from './Profile.module.css'
 
 export default function Painting(props) {
   const {
-    avatar = defaultImg,
+    src = defaultImg,
     userName,
     tag,
     location,
@@ -14,8 +14,8 @@ export default function Painting(props) {
   console.log(props)
   return (
     <div className="profile">
-      <div className={p.description}>
-        <img src={avatar} alt="Аватар пользователя" className="avatar" />
+      <div className="description">
+        <img src={src} alt="Аватар пользователя" className={p.avatar} />
         <p className="name">name: {userName}</p>
         <p className="tag">tag: {tag}</p>
         <p className="location">location: {location}</p>
