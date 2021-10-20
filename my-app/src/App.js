@@ -1,10 +1,10 @@
 import Profile from "./components/Profile/Profile"
 import data from './components/Profile/data.json'
-import StatisticList from "./components/Statistics/StatisticList"
+import Statistic from "./components/Statistics/Statistics"
 import statisticalData from './components/Statistics/statistical-data.json'
 import FriendsList from "./components/FriendList/FriendsList"
 import friendsJson from './components/FriendList/friends.json'
-import TransactionList from "./components/TransactionHistory/TransactionList"
+import TransactionHistory from "./components/TransactionHistory/TransactionHistory"
 import transactionJson from './components/TransactionHistory/transactions.json'
 import Container from "./components/container"
 
@@ -16,12 +16,11 @@ export default function App() {
                 userName={data.name}
                 tag={data.tag}
                 location={data.location}
-                followers={data.stats.followers}
-                views={data.stats.views}
-                likes={data.stats.likes} />
-            <StatisticList statistics={statisticalData} title='Upload stats'/>
+                stats={data.stats}
+                 />
+            <Statistic statistics={statisticalData} title='Upload stats'/>
             <FriendsList items={friendsJson }/>
-            <TransactionList items={ transactionJson}/>
+            <TransactionHistory items={ transactionJson}/>
         </Container>
     )    
 }

@@ -1,17 +1,10 @@
-import PropTypes from 'prop-types'; 
-import defaultImg from './defaultIMG.jpg'
-import p from './Profile.module.css'
+import PropTypes from 'prop-types';
+import defaultImg from './defaultIMG.jpg';
+import p from './Profile.module.css';
 
 export default function Painting(props) {
-  const {
-    src = defaultImg,
-    userName,
-    tag,
-    location,
-    followers,
-    views,
-    likes } = props;
-  console.log(props)
+  const { src = defaultImg, userName, tag, location, stats } = props;
+  const { followers, views, likes } = stats;
   return (
     <div className="profile">
       <div className="description">
@@ -35,15 +28,19 @@ export default function Painting(props) {
         </li>
       </ul>
     </div>
-  )
+  );
 }
 
 Painting.propTypes = {
-  src: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  followers: PropTypes.number.isRequired,
-  views: PropTypes.number.isRequired,
-  likes: PropTypes.number.isRequired,
-}
+  props: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    stats: PropTypes.shape({
+      followers: PropTypes.number.isRequired,
+      views: PropTypes.number.isRequired,
+      likes: PropTypes.number.isRequired,
+    }),
+  }),
+};
